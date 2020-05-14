@@ -14,3 +14,17 @@ ___________
 2: I can stop a new work/rest cycle;
 3: I can pause a new cycle;
 4: I can adjust the length of the cycle;
+
+_____
+
+**Features To Add**
+
+Explaination on the Pomodoro Technique, top of page? bottom? sidebar?
+
+current time in your location displayed at top of page.
+
+gradient background
+- cool colors for rest time
+- warm for work time
+
+streaming in ambient music? - link to a lofi station.
