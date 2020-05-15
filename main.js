@@ -1,22 +1,33 @@
 console.log("hello world!");
 
-const startButton = document.querySelector('[data-start]');
-const stopButton = document.querySelector('[data-stop]');
-const pauseButton = document.querySelector('[data-pause]');
+const startButton = document.querySelector('[data-start-session]');
+const pauseButton = document.querySelector('[data-pause-session]');
+const increaseWorkTimeBtn = document.querySelector('[data-increase-work-button]');
+const decreaseWorkTimeBtn = document.querySelector('[data-decrease-work-button]');
+const increaseRestTimeBtn = document.querySelector('[data-increase-rest-button]');
+const decreaseRestTimeBtn = document.querySelector('[data-decrease-rest-button]');
 
 startButton.addEventListener('click', () => {
-    // console.log("Yeah got fuckin clicked right here.");
     console.log("startButton clicked");
-})
-
-stopButton.addEventListener('click', () => {
-    console.log("stop buttpns clicked");
 })
 
 pauseButton.addEventListener('click', () => {
     console.log("pauseButton clicked");
 })
 
+increaseWorkTimeBtn.addEventListener('click', () => {
+    console.log("work time increased");
+})
+decreaseWorkTimeBtn.addEventListener('click', () => {
+    console.log("work time decreased");
+})
+
+increaseRestTimeBtn.addEventListener('click', () => {
+    console.log("rest time increased");
+})
+decreaseRestTimeBtn.addEventListener('click', () => {
+    console.log("rest time decreased");
+})
 
 
 // TODO: REWORK ALL OF THIS BELOW.

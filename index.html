@@ -6,7 +6,7 @@
   <title>Craig's Pomodoro Clock.</title>
   <style>
     body {
-      /* background-color: rgba(0, 0, 0, 0.5); */
+      background-color: rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
@@ -18,33 +18,34 @@
     <div data-progress-bar class="progress-bar">________placeholder_________</div>
 
     <div class="main-display">
-      <div class="main-timer">25:00</div>
+      <div class="main-timer">25:00</div> 
+      <!-- TODO: MAKE MINS AND SECONDS DIFFERENT FIELDS -->
     </div>
 
     <div class="controls">
       <div class="settings control">
         <div class="work-time">
           <div class="work-label">Work Duration</div>
-          <button>Increase Work</button>
-          <button>Decrease Work</button>
+          <button data-increase-work-button>Increase Work</button>
+          <button data-decrease-work-button>Decrease Work</button>
           <div class="work-length" data-work-length> 25:00 </div>
         </div>
         <div class="rest-time">
           <div class="rest-label">Rest Duration</div>
-          <button>Increase Rest</button>
-          <button>Decrease Rest</button>
+          <button data-increase-rest-button>Increase Rest</button>
+          <button data-decrease-rest-button>Decrease Rest</button>
           <div class="rest-length" data-rest-length> 05:00 </div>
         </div>
 
-        <button>Start Session</button>
-        <button>Pause Session</button>
+        <button data-start-session>Start Session</button>
+        <button data-pause-session>Pause Session</button>
       </div>
     </div>
 
     <div class="bottom">By Craig. [Link To GitHub]</div>
 
   </div>
-  <!-- <script src="./main.js" type="text/javascript"></script> -->
+  <script src="./main.js" type="text/javascript"></script>
 </body>
 
 </html>

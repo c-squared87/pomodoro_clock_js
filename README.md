@@ -10,10 +10,11 @@ ___________
 
 **User Stories**
 
-1: I can start a new work/rest cycle;
-2: I can stop a new work/rest cycle;
-3: I can pause a new cycle;
-4: I can adjust the length of the cycle;
+1: I can start a new work/rest session with default values
+2: I can pause a session
+3: I can adjust the length of the elements of the cycle
+4: I can learn more about what the pomodoro technique is 
+5: I can learn who made this product
 
 _____
 
@@ -28,3 +29,5 @@ gradient background
 - warm for work time
 
 streaming in ambient music? - link to a lofi station.
+
+some sort of logging system - think about having a history of sessions print to a spread sheet with a place for notes?
