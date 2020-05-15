@@ -6,7 +6,7 @@
   <title>Craig's Pomodoro Clock.</title>
   <style>
     body {
-      background-color: rgba(0, 0, 0, 0.5);
+      /* background-color: rgba(0, 0, 0, 0.5); */
     }
   </style>
 </head>
@@ -14,16 +14,50 @@
 <body>
   <div class="app" data-app>
 
-    <div class="display" data-display>
-      <h2 id="demo">25:00</h2>
-      <h4 id="">5:00</h4>
+    <!-- TODO: change from placeholder h tags and do it css with classes and divs -->
+    <h2>Project Title</h2>
+    <div data-progress-bar class="progress-bar">_________________________________</div>
+
+    <div class="main-display">
+      <h1>25:00</h1>
     </div>
 
-    <button data-start>Start</button>
-    <button data-stop>Stop</button>
-    <button data-pause>Pause</button>
+    <div class="controls">
+
+      <div class="settings control">
+        <div class="work-time">
+          <div class="work-length" data-work-length> 25:00 </div>
+        </div>
+        <div class="rest-time">
+          <div class="rest-length" data-rest-length> 05:00 </div>
+        </div>
+
+        <button>Start Session</button>
+        <button>Pause Session</button>
+      </div>
+
+    </div>
+
   </div>
-  <script src="./main.js" type="text/javascript"></script>
+  <!-- <script src="./main.js" type="text/javascript"></script> -->
 </body>
 
 </html>
+
+<!-- THIS IS A COOL EXAMPLE -->
+<!-- https://diegoluis.net/pomodoro-clock/ -->
+
+<!-- 
+
+  ProjectTitle 
+  *progress bar
+  time left display
+
+  settings label
+  work time
+  rest time
+
+  start
+  pause
+
+-->
