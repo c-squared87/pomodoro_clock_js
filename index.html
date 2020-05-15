@@ -14,29 +14,34 @@
 <body>
   <div class="app" data-app>
 
-    <!-- TODO: change from placeholder h tags and do it css with classes and divs -->
-    <h2>Project Title</h2>
-    <div data-progress-bar class="progress-bar">_________________________________</div>
+    <div class="title">Pomodoro Clock</div>
+    <div data-progress-bar class="progress-bar">________placeholder_________</div>
 
     <div class="main-display">
-      <h1>25:00</h1>
+      <div class="main-timer">25:00</div>
     </div>
 
     <div class="controls">
-
       <div class="settings control">
         <div class="work-time">
+          <div class="work-label">Work Duration</div>
+          <button>Increase Work</button>
+          <button>Decrease Work</button>
           <div class="work-length" data-work-length> 25:00 </div>
         </div>
         <div class="rest-time">
+          <div class="rest-label">Rest Duration</div>
+          <button>Increase Rest</button>
+          <button>Decrease Rest</button>
           <div class="rest-length" data-rest-length> 05:00 </div>
         </div>
 
         <button>Start Session</button>
         <button>Pause Session</button>
       </div>
-
     </div>
+
+    <div class="bottom">By Craig. [Link To GitHub]</div>
 
   </div>
   <!-- <script src="./main.js" type="text/javascript"></script> -->
