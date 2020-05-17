@@ -1,5 +1,59 @@
+// JUST MAKING SURE THIS ALL WORKs.
 console.log("hello world!");
 
+class PomoClock {
+
+    constructor() {
+
+    }
+
+    // Methods
+
+    startTimer() {
+        this.currentTime = workTime;
+    }
+
+    pauseTimer() {
+
+    }
+
+    resetTimer() {
+
+    }
+
+    modifyWorkTime(interval) {
+        this.workTime += interval;
+    }
+
+    modifyRestTime(interval) {
+        this.restTime += interval;
+    }
+
+    updateWorkTimeDisplay() {
+
+    }
+
+    updateRestTimeDisplay() {
+
+    }
+
+
+}
+
+
+// // Variables
+// var currentTime = 0;
+// var workTime = 25;
+// var restTime = 5;
+
+// Fields
+const mainTimerMinutes = document.querySelector('[data-main-mins]');
+const mainTimerSeconds = document.querySelector('[data-main-secs]');
+
+const workLengthDisplay = document.addEventListener('[data-work-length]')
+const restLengthDisplay = document.addEventListener('[data-rest-length]')
+
+// Buttons
 const startButton = document.querySelector('[data-start-session]');
 const pauseButton = document.querySelector('[data-pause-session]');
 const increaseWorkTimeBtn = document.querySelector('[data-increase-work-button]');
@@ -7,26 +61,31 @@ const decreaseWorkTimeBtn = document.querySelector('[data-decrease-work-button]'
 const increaseRestTimeBtn = document.querySelector('[data-increase-rest-button]');
 const decreaseRestTimeBtn = document.querySelector('[data-decrease-rest-button]');
 
-startButton.addEventListener('click', () => {
-    console.log("startButton clicked");
-})
 
+
+// Listeners
+startButton.addEventListener('click', () => {
+    // console.log("startButton clicked");
+
+})
 pauseButton.addEventListener('click', () => {
     console.log("pauseButton clicked");
 })
-
 increaseWorkTimeBtn.addEventListener('click', () => {
-    console.log("work time increased");
+    modifyWorkTime(1);
+    updateWorkTimeDisplay();
 })
 decreaseWorkTimeBtn.addEventListener('click', () => {
-    console.log("work time decreased");
+    modifyWorkTime(-1);
+    updateWorkTimeDisplay();
 })
-
 increaseRestTimeBtn.addEventListener('click', () => {
-    console.log("rest time increased");
+    modifyRestTime(1);
+    updateRestTimeDisplay();
 })
 decreaseRestTimeBtn.addEventListener('click', () => {
-    console.log("rest time decreased");
+    modifyRestTime(-1);
+    updateRestTimeDisplay();
 })
 
 
