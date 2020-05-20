@@ -1,75 +1,31 @@
 // JUST MAKING SURE THIS ALL WORKs.
 // console.log("hello world!");
 
+/*
+    TODO:
+    change labels on start and pause buttons to "reset" and "resume" on pause.
+*/
 
-function startTimer() {
-
-    console.log("Starting a new session");
-
-    var countDownDate = new Date().getTime() + (60000 * 25)
-
-    // Update the count down every 1 second
-    var x = setInterval(function () {
-
-        // Get today's date and time
-        var now = new Date().getTime();
-
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-
-        // // Time calculations for days, hours, minutes and seconds
-        // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        mainTimerMinutes.innerText = minutes.toString();
-        mainTimerSeconds.innerText = seconds.toString();
-
-        // Display the result in the element with id="demo" TODO: CHANGE FROM 'DEMO'
-        // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        //     + minutes + "m " + seconds + "s ";
-
-        // If the count down is finished, write some text
-        // if (distance < 0) {
-        //     clearInterval(x);
-        //     document.getElementById("demo").innerHTML = "EXPIRED";
-        // }
-    }, 1000);
+function setWorkTime(interval) {
+    workTime += interval;
+    updateWorkTimeDisplay();
 }
 
-// pauseTimer() {
+function setRestTime(interval) {
+    restTime += interval;
+    updateRestTimeDisplay();
+}
 
-// }
+// THESE MIGHT BE REDUNDANT.
+function updateWorkTimeDisplay() { workLengthDisplay.innerText = workTime.toString(); }
+function updateRestTimeDisplay() { restLengthDisplay.innerText = restTime.toString(); }
 
-// resetTimer() {
+var timer;
+var paused = false;
+var countDownDate;
 
-// }
-
-// modifyWorkTime(interval) {
-//     // this.workTime += interval;
-//     this.updateWorkTimeDisplay();
-// }
-
-// modifyRestTime(interval) {
-//     // this.restTime += interval;
-//     this.updateRestTimeDisplay();
-// }
-
-// updateWorkTimeDisplay() {
-//     this.workDisplay.innerText = "testing this shits right here";
-// }
-
-// updateRestTimeDisplay() {
-//     this.restDisplay.innerText = "testing resting";
-// }
-
-// updateMainTimer() {
-
-// }
-
-
-
+var workTime = 25;
+var restTime = 5;
 
 // Fields
 const mainTimerMinutes = document.querySelector('[data-main-mins]');
@@ -88,27 +44,71 @@ const decreaseWorkTimeBtn = document.querySelector('[data-decrease-work-button]'
 const increaseRestTimeBtn = document.querySelector('[data-increase-rest-button]');
 const decreaseRestTimeBtn = document.querySelector('[data-decrease-rest-button]');
 
-// Make a new clock to play with.
-// const clock = new PomoClock(mainTimerMinutes, mainTimerSeconds, workLengthDisplay, restLengthDisplay);
 
 // Listeners
-
-// TODO: ALL THIS SHITE NEEDS TO BE working.
 startButton.addEventListener('click', () => {
-    startTimer();
-})
+    // startTimer();
+
+    // TODO: BUILD THIS OUT AND THEN MOVE TO A METHOD FOR CLEANLINESS.
+    // startSession()- pass in work and rest? or leave them global.
+
+    if (paused) {
+        // clearInterval(timer); TODO: this idea but not this.
+    }
+
+    countDownDate = new Date().getTime() + (60000 * workTime); //TODO: move in worktime var here.
+
+    timer = setInterval(function (e) {
+
+        if (!paused) {
+
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // // Time calculations for days, hours, minutes and seconds
+            // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            mainTimerMinutes.innerText = minutes.toString();
+            mainTimerSeconds.innerText = seconds.toString();
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                // clearInterval(x);
+                // alert("Timer is Done");
+            }
+
+            // timer--;
+            // mainTimerSeconds.innerText = timer.toString();
+        }
+
+    }, 1000);
+});
+
 pauseButton.addEventListener('click', () => {
-    clock.pauseTimer;
-})
+
+    console.log("paused state " + paused);
+
+    if (paused) {
+        paused = false;
+        return;
+    }
+    paused = true;
+});
+
 increaseWorkTimeBtn.addEventListener('click', () => {
-    clock.modifyWorkTime(1);
+    setWorkTime(1);
 })
 decreaseWorkTimeBtn.addEventListener('click', () => {
-    clock.modifyWorkTime(-1);
+    setWorkTime(-1);
 })
-increaseRestTimeBtn.addEventListener('click', () => {
-    clock.modifyRestTime(1);
+incrsetstTimeBtn.addEventListener('click', () => {
+    modifyRestTime(1);
 })
-decreaseRestTimeBtn.addEventListener('click', () => {
-    clock.modifyRestTime(-1);
+decrsetstTimeBtn.addEventListener('click', () => {
+    modifyRestTime(-1);
 })
