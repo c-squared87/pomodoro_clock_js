@@ -7,30 +7,27 @@
 */
 
 function setWorkTime(interval) {
+    // TODO: MIN MAX VALUES
     workTime += interval;
-    updateWorkTimeDisplay();
+    workLengthDisplay.innerText = workTime.toString() + ":00";
 }
 
 function setRestTime(interval) {
     restTime += interval;
-    updateRestTimeDisplay();
+    restLengthDisplay.innerText = restTime.toString() + ":00";
 }
 
-// THESE MIGHT BE REDUNDANT.
-function updateWorkTimeDisplay() { workLengthDisplay.innerText = workTime.toString(); }
-function updateRestTimeDisplay() { restLengthDisplay.innerText = restTime.toString(); }
-
-var timer;
 var paused = false;
 var countDownDate;
 
+// Default values.
 var workTime = 25;
 var restTime = 5;
 
-// Fields
-const mainTimerMinutes = document.querySelector('[data-main-mins]');
-const mainTimerSeconds = document.querySelector('[data-main-secs]');
+const appContainer = document.querySelector('[data-app]');
 
+// Display Fields
+const mainTimerDisplay = document.querySelector('[data-main-mins]');
 const workLengthDisplay = document.querySelector('[data-work-length]')
 const restLengthDisplay = document.querySelector('[data-rest-length]')
 
@@ -45,20 +42,14 @@ const increaseRestTimeBtn = document.querySelector('[data-increase-rest-button]'
 const decreaseRestTimeBtn = document.querySelector('[data-decrease-rest-button]');
 
 
-// Listeners
-startButton.addEventListener('click', () => {
-    // startTimer();
+function startSession() {
 
-    // TODO: BUILD THIS OUT AND THEN MOVE TO A METHOD FOR CLEANLINESS.
-    // startSession()- pass in work and rest? or leave them global.
+    appContainer.classList.remove("rest");
+    appContainer.classList.add("work");
 
-    if (paused) {
-        // clearInterval(timer); TODO: this idea but not this.
-    }
+    countDownDate = new Date().getTime() + (60000 * 0.2); //TODO: move in worktime var here.
 
-    countDownDate = new Date().getTime() + (60000 * workTime); //TODO: move in worktime var here.
-
-    timer = setInterval(function (e) {
+    setInterval(function () {
 
         if (!paused) {
 
@@ -73,13 +64,13 @@ startButton.addEventListener('click', () => {
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            mainTimerMinutes.innerText = minutes.toString();
-            mainTimerSeconds.innerText = seconds.toString();
+            mainTimerDisplay.innerText = minutes.toString() + " : " + seconds.toString();
+            // mainTimerSeconds.innerText = seconds.toString();
 
             // If the count down is finished, write some text
             if (distance < 0) {
-                // clearInterval(x);
-                // alert("Timer is Done");
+                clearInterval();
+                startRest();
             }
 
             // timer--;
@@ -87,17 +78,62 @@ startButton.addEventListener('click', () => {
         }
 
     }, 1000);
+}
+
+function startRest() {
+
+    appContainer.classList.remove("work");
+    appContainer.classList.add("rest");
+
+    countDownDate = new Date().getTime() + (60000 * restTime);
+
+    setInterval(function () {
+
+        if (!paused) {
+
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // // Time calculations for days, hours, minutes and seconds
+            // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            mainTimerDisplay.innerText = minutes.toString() + " : " + seconds.toString();
+            // mainTimerSeconds.innerText = seconds.toString();
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval();
+                startRest();
+            }
+
+            // timer--;
+            // mainTimerSeconds.innerText = timer.toString();
+        }
+
+    }, 1000);
+}
+
+
+// Listeners
+startButton.addEventListener('click', () => {
+    startSession();
 });
 
 pauseButton.addEventListener('click', () => {
 
-    console.log("paused state " + paused);
-
     if (paused) {
         paused = false;
+        pauseButton.innerText = "Pause Session"
         return;
     }
+
     paused = true;
+    pauseButton.innerText = "Resume Session"
 });
 
 increaseWorkTimeBtn.addEventListener('click', () => {
@@ -106,9 +142,17 @@ increaseWorkTimeBtn.addEventListener('click', () => {
 decreaseWorkTimeBtn.addEventListener('click', () => {
     setWorkTime(-1);
 })
-incrsetstTimeBtn.addEventListener('click', () => {
-    modifyRestTime(1);
+increaseRestTimeBtn.addEventListener('click', () => {
+    setRestTime(1);
 })
-decrsetstTimeBtn.addEventListener('click', () => {
-    modifyRestTime(-1);
+decreaseRestTimeBtn.addEventListener('click', () => {
+    setRestTime(-1);
 })
+
+
+
+// // Time calculations for days, hours, minutes and seconds
+            // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            // // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
