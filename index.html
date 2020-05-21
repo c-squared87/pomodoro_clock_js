@@ -4,19 +4,63 @@
 <head>
   <meta charset="utf-8">
   <title>Craig's Pomodoro Clock.</title>
-  <style>
+
+  <!-- This is all commented out because GOOD GOD I DONT KNOW A THING ABOUT CSS HELP -->
+
+  <!-- <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+    }
+
     body {
-      background-color: rgba(0, 0, 0, 0.5);
+      /* background: -webkit-linear-gradient(to right bottom, #8e9eab, #eef2f3); */
+      /* background: -moz-linear-gradient(to right bottom, #8e9eab, #eef2f3); */
+      background: linear-gradient(to right bottom, #8e9eab, #eef2f3);
+      display: block;
+      height: 100%;
+      margin: 0;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
 
-    .rest {
-      background-color: rgba(0, 255, 0, 1);
+    .app {
+      display: block;
+      border: greenyellow solid 1px;
+      width: 640px;
+      height: 377px;
+      position: relative;
+      background-color: #242c37;
+      color: #fff;
+      margin: 25px auto;
+
+      /* vertical-align: baseline; */
+      /* font-family: 'Exo 2', sans-serif; */
     }
 
-    .work {
-      background-color: rgba(0, 0, 255, 1);
+    .time-controls {
+      border: black solid 1px;
+      width: 90px;
+      height: 90px;
     }
-  </style>
+
+    .main-display {
+      border: black solid 1px;
+      width: 250px;
+      height: 250px;
+
+    }
+
+    .rest-time {
+      float: right;
+    }
+
+    .work-time {
+      float: left;
+    }
+  </style> -->
 </head>
 
 <body>
@@ -25,22 +69,24 @@
   <div class="app" data-app>
 
     <div class="title">Pomodoro Clock</div>
-    <div data-progress-bar class="progress-bar">________placeholder_________</div>
+    <!-- <div data-progress-bar class="progress-bar">________placeholder_________</div> -->
 
-    <div class="main-display">
-      <div class="main-timer-min" data-main-mins>25:00</div>
-      <!-- <div class="main-timer-sec" data-main-secs>00</div>  TESTING PULLING THIS OUT.-->
-    </div>
 
     <div class="controls">
       <div class="settings control">
-        <div class="work-time">
+        <div class="work-time time-controls">
           <div class="work-label">Work Duration</div>
           <button data-increase-work-button>Increase Work</button>
           <button data-decrease-work-button>Decrease Work</button>
           <div class="work-length" data-work-length> 25:00 </div>
         </div>
-        <div class="rest-time">
+
+        <div class="main-display">
+          <div class="main-timer-min" data-main-mins>25:00</div>
+          <!-- <div class="main-timer-sec" data-main-secs>00</div>  TESTING PULLING THIS OUT.-->
+        </div>
+
+        <div class="rest-time time-controls">
           <div class="rest-label">Rest Duration</div>
           <button data-increase-rest-button>Increase Rest</button>
           <button data-decrease-rest-button>Decrease Rest</button>
