@@ -1,0 +1,88 @@
+:root {
+    --main-color: red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    display: block;
+    /* border: red 1px solid; */
+}
+
+html,
+body {
+    height: 100%;
+    /* background: radial-gradient(var(--main-color), var(--main-alternate)); */
+    background-repeat: no-repeat;
+}
+
+.app {
+    border: red 1px solid;
+    width: 640px;
+    height: 380px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-display {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main-display h1 {
+    font-size: 66px;
+}
+
+.time-controls {
+    border: red 1px solid;
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    top: 40%;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.time-controls h3 {
+    /* border: red 1px solid; */
+    /* position: absolute; */
+    width: 100%;
+    text-align: center;
+}
+
+.time-controls p {
+    border: red 1px solid;
+    text-align: center;
+    position: absolute;
+}
+
+.rest-time {
+    right: 0;
+}
+
+.work-time {
+    left: 0;
+}
+
+.increase-btn {
+    position: absolute;
+    left: 0;
+    top: 40%;
+}
+
+.decrease-btn {
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+
+.session-controls {
+    position: absolute;
+    bottom: 0;
+    display: inline;
+}

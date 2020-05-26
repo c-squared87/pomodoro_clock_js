@@ -2,112 +2,68 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Craig's Pomodoro Clock.</title>
-
-  <!-- This is all commented out because GOOD GOD I DONT KNOW A THING ABOUT CSS HELP -->
-
-  <!-- <style>
-    * {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-
-    }
-
-    body {
-      /* background: -webkit-linear-gradient(to right bottom, #8e9eab, #eef2f3); */
-      /* background: -moz-linear-gradient(to right bottom, #8e9eab, #eef2f3); */
-      background: linear-gradient(to right bottom, #8e9eab, #eef2f3);
-      display: block;
-      height: 100%;
-      margin: 0;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
-
-    .app {
-      display: block;
-      border: greenyellow solid 1px;
-      width: 640px;
-      height: 377px;
-      position: relative;
-      background-color: #242c37;
-      color: #fff;
-      margin: 25px auto;
-
-      /* vertical-align: baseline; */
-      /* font-family: 'Exo 2', sans-serif; */
-    }
-
-    .time-controls {
-      border: black solid 1px;
-      width: 90px;
-      height: 90px;
-    }
-
-    .main-display {
-      border: black solid 1px;
-      width: 250px;
-      height: 250px;
-
-    }
-
-    .rest-time {
-      float: right;
-    }
-
-    .work-time {
-      float: left;
-    }
-  </style> -->
+    <meta charset="utf-8">
+    <title>Craig's Pomodoro Clock.</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- TODO: think about adding a current time clock on the top -->
-  <div class="app" data-app>
-
     <div class="title">Pomodoro Clock</div>
-    <!-- <div data-progress-bar class="progress-bar">________placeholder_________</div> -->
+    <!-- TODO: think about adding a current time clock on the top -->
+    <div class="app" data-app>
 
-
-    <div class="controls">
-      <div class="settings control">
-        <div class="work-time time-controls">
-          <div class="work-label">Work Duration</div>
-          <button data-increase-work-button>Increase Work</button>
-          <button data-decrease-work-button>Decrease Work</button>
-          <div class="work-length" data-work-length> 25:00 </div>
-        </div>
-
+        <!-- <div data-progress-bar class="progress-bar">________placeholder_________</div> -->
         <div class="main-display">
-          <div class="main-timer-min" data-main-mins>25:00</div>
-          <!-- <div class="main-timer-sec" data-main-secs>00</div>  TESTING PULLING THIS OUT.-->
+            <div class="main-timer-min">
+                <h1 data-main-mins>25 : 00</h1>
+            </div>
+            <!-- <div class="main-timer-sec" data-main-secs>00</div>  TESTING PULLING THIS OUT.-->
         </div>
 
-        <div class="rest-time time-controls">
-          <div class="rest-label">Rest Duration</div>
-          <button data-increase-rest-button>Increase Rest</button>
-          <button data-decrease-rest-button>Decrease Rest</button>
-          <div class="rest-length" data-rest-length> 05:00 </div>
+        <div class="controls">
+            <div class="settings control">
+                <div class="work-time time-controls">
+                    <div>
+                        <h3 class="work-label">Work</h3>
+                    </div>
+                    <button data-increase-work-button class="increase-btn">^</button>
+                    <button data-decrease-work-button class="decrease-btn">\/</button>
+                    <div class="work-length" data-work-length>
+                        <p>25:00</p>
+                    </div>
+                </div>
+                <div class="rest-time time-controls">
+                    <div class="rest-label">
+                        <h3>Rest</h3>
+                    </div>
+                    <button data-increase-rest-button class="increase-btn">^</button>
+                    <button data-decrease-rest-button class="decrease-btn">\/</button>
+                    <div class="rest-length" data-rest-length>
+                        <p>05:00</p>
+                    </div>
+                </div>
+
+                <div class="session-controls">
+                    <button data-start-session>Start Session</button>
+                    <button data-pause-session>Pause Session</button>
+                </div>
+
+            </div>
         </div>
 
-        <button data-start-session>Start Session</button>
-        <button data-pause-session>Pause Session</button>
-      </div>
+
     </div>
 
     <div class="bottom">By Craig. [Link To GitHub]</div>
-
-  </div>
-  <script src="./main.js" type="text/javascript"></script>
+    <script src="./main.js" type="text/javascript"></script>
 </body>
 
 </html>
 
-<!-- THIS IS A COOL EXAMPLE -->
+<!-- THIS IS A EXAMPLES I LIKE-->
 <!-- https://diegoluis.net/pomodoro-clock/ -->
+<!-- https://alx4567.github.io/pomodoro/ -->
 
 <!-- 
 

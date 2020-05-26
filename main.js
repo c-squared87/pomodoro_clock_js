@@ -13,6 +13,7 @@ function setWorkTime(interval) {
     if (workTime <= 15) {
         workTime = 15;
     } else if (workTime >= 45) {
+        snowb
         workTime = 45;
     }
 
@@ -66,7 +67,7 @@ function startSession() {
 
     countDownDate = new Date().getTime() + (60000 * workTime); //TODO: move in worktime var here.
 
-    setInterval(function () {
+    setInterval(function() {
 
         if (!paused) {
 
@@ -86,6 +87,7 @@ function startSession() {
 
             // If the count down is finished, write some text
             if (distance < 0) {
+                alert("Time is up!");
                 clearInterval();
                 startRest();
             }
@@ -101,7 +103,7 @@ function startRest() {
 
     countDownDate = new Date().getTime() + (60000 * restTime);
 
-    setInterval(function () {
+    setInterval(function() {
 
         if (!paused) {
 
@@ -156,7 +158,7 @@ decreaseRestTimeBtn.addEventListener('click', () => {
 
 
 // // Time calculations for days, hours, minutes and seconds
-            // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            // // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+// var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+// // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+// var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+// var seconds = Math.floor((distance % (1000 * 60)) / 1000);
